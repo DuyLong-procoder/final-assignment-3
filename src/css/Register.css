@@ -1,0 +1,74 @@
+.register-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.register-container form > div {
+  margin-bottom: 16px;
+}
+
+.register-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.register-container input:focus {
+  outline: none;
+  border-color: #0077ff;
+}
+
+.register-container button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #0077ff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+}
+
+.register-container button[type="submit"]:hover {
+  background-color: #005edb;
+}
+
+.register-container p {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.register-container .error {
+  color: #e74c3c;
+}
+
+.register-container .success {
+  color: #2ecc71;
+}

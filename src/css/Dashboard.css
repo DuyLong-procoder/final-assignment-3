@@ -1,0 +1,99 @@
+.dashboard-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    color: #2c3e50;
+  }
+  
+  .dashboard-container.dark {
+    background: #1e1e1e;
+    color: #f1f1f1;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .logout-btn,
+  .darkmode-btn {
+    margin: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .darkmode-btn {
+    background-color: #444;
+  }
+  
+  .logout-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .search-section input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  
+  .user-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .user-list .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .user-list span {
+    flex: 1;
+  }
+  
+  .role-badge {
+    background-color: #2ecc71;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 0 10px;
+    text-transform: uppercase;
+  }
+  
+  .delete-btn {
+    padding: 6px 12px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  

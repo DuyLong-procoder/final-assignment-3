@@ -1,27 +1,51 @@
-// src/components/Navbar.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../css/Navbar.css';
 
 function Navbar({ user, setUser }) {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark' : 'light';
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem('user');
   };
 
   return (
-    <nav>
-      <Link to="/">Home</Link> | <Link to="/about">About</Link> | 
-      {user ? (
-        <>
-          <Link to="/dashboard">Dashboard</Link> | 
-          <Link to="/profile">Profile</Link> | 
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      ) : (
-        <>
-          <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
-        </>
-      )}
+    <nav className="navbar">
+      <div className="nav-left">
+        <Link to="/">🏠 Home</Link>
+        <Link to="/about">About</Link>
+        {user && <Link to="/dashboard">Dashboard</Link>}
+        {user && <Link to="/profile">Profile</Link>}
+      </div>
+
+      <div className="nav-right">
+        <button onClick={() => setDarkMode(!darkMode)} className="dark-toggle">
+          {darkMode ? '🌞' : '🌙'}
+        </button>
+
+        {user ? (
+          <>
+            <div className="user-info">
+              <img src={user.avatar || `https://i.pravatar.cc/40?u=${user.username}`} alt="Avatar" className="avatar" />
+              <span>{user.username} ({user.role})</span>
+            </div>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 }

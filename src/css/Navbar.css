@@ -1,0 +1,88 @@
+/* Theme background + text color */
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Navbar wrapper */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: inherit;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Left side: links */
+.nav-left a {
+  margin-right: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  color: inherit;
+}
+
+.nav-left a:hover {
+  text-decoration: underline;
+}
+
+/* Right side: dark mode toggle + login info */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Dark mode button */
+.dark-toggle {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Avatar + username */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #888;
+}
+
+/* Logout button */
+.logout-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Login/Register links */
+.nav-right a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  text-decoration: underline;
+}
