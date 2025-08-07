@@ -2,7 +2,7 @@
 import React from 'react';
 
 function Home() {
-  return <h1>dlong </h1>;
+  return <h1>Tú uyên ngu </h1>;
 }
 
 export default Home;
