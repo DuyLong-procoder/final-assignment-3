@@ -2,6 +2,7 @@
 import '../css/Login.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
 function Login({ setUser }) {
   const [username, setUsername] = useState('');
@@ -10,7 +11,6 @@ function Login({ setUser }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
     const user = storedUsers.find(u => u.username === username && u.password === password);
 
@@ -18,40 +18,61 @@ function Login({ setUser }) {
       setUser(user);
       navigate('/dashboard');
     } else {
-      alert('Invalid credentials');
+      alert('Tên đăng nhập hoặc mật khẩu không đúng');
     }
   };
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Tên đăng nhập:</label>
-          <input
-            id="username"
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
+    <div className="login-page">
 
-        <div className="form-group">
-          <label htmlFor="password">Mật khẩu:</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+      {/* Phần form đăng nhập */}
+      <Container className="login-container">
+        <Row className="justify-content-center">
+          <Col md={6} lg={4}>
+            <div className="login-form">
+              <h2 className="text-center mb-4">Đăng nhập</h2>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Tên đăng nhập:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Nhập tên đăng nhập"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                </Form.Group>
 
-        <button type="submit">Login</button>
-      </form>
+                <Form.Group className="mb-4">
+                  <Form.Label>Mật khẩu:</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Nhập mật khẩu"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+
+                <Button variant="primary" type="submit" className="w-100 mb-3">
+                  Đăng nhập
+                </Button>
+
+                <div className="register-link text-center">
+                  <span>Chưa có tài khoản? </span>
+                  <Button 
+                    variant="link" 
+                    onClick={() => navigate('/register')}
+                    className="register-btn"
+                  >
+                    Đăng ký ngay
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
