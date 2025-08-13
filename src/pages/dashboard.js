@@ -34,10 +34,9 @@ function Dashboard({ user, onLogout }) {
   return (
     <div className={`dashboard-container ${darkMode ? 'dark' : ''}`}>
       <div className="dashboard-header">
-        <h1>Xin chào, {user?.username} 👋</h1>
+        <h1>Xin chào {user?.username}, vui lòng đợi 1 chút chúng tôi sẽ liên hệ với bạn sớm nhất 👋</h1>
         <button onClick={handleLogout} className="logout-btn">Đăng xuất</button>
         <button onClick={toggleDarkMode} className="darkmode-btn">
-          {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
         </button>
       </div>
 
@@ -50,7 +49,7 @@ function Dashboard({ user, onLogout }) {
         />
       </div>
 
-      <h2>Danh sách người dùng:</h2>
+      <h2>Danh sách khách hàng sử dụng dịch vụ cao cấp (đang chờ):</h2>
       <ul className="user-list">
         {filteredUsers.map((u, index) => (
           <li key={index}>

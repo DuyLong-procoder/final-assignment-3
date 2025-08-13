@@ -53,7 +53,7 @@ function Register() {
       <h2>Đăng ký</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Tên đăng nhập:</label>
+          <label>Số điện thoại</label>
           <input
             type="text"
             value={username}

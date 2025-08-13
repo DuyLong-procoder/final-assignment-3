@@ -33,10 +33,10 @@ function Login({ setUser }) {
               <h2 className="text-center mb-4">Đăng nhập</h2>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-                  <Form.Label>Tên đăng nhập:</Form.Label>
+                  <Form.Label>Số điện thoại:</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Nhập tên đăng nhập"
+                    placeholder="Nhập số điện thoại"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
