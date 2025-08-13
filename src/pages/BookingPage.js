@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function BookingPage() {
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const eventTypes = [
     { value: 'mua-trung-thu', label: 'Múa Trung Thu' },
@@ -13,6 +15,34 @@ function BookingPage() {
     { value: 'khac', label: 'Sự kiện khác' }
   ];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const newBooking = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      eventType: formData.get("eventType"),
+      date: formData.get("date"),
+      time: formData.get("time"),
+      address: formData.get("address"),
+      notes: formData.get("notes")
+    };
+
+    // Lưu vào localStorage
+    const existingBookings = JSON.parse(localStorage.getItem("lionDanceBookings")) || [];
+    existingBookings.push(newBooking);
+    localStorage.setItem("lionDanceBookings", JSON.stringify(existingBookings));
+
+    setSubmitted(true);
+
+    // Chuyển sang trang xem lịch
+    setTimeout(() => {
+      navigate("/schedule");
+    }, 1000);
+  };
+
   return (
     <div className="booking-page">
       <Container className="py-5">
@@ -22,7 +52,7 @@ function BookingPage() {
           <Form
             action="https://formsubmit.co/hsneaky2108@gmail.com"
             method="POST"
-            onSubmit={() => setSubmitted(true)}
+            onSubmit={handleSubmit}
           >
             {/* Tắt captcha và redirect */}
             <input type="hidden" name="_captcha" value="false" />
@@ -92,7 +122,7 @@ function BookingPage() {
           </Form>
         ) : (
           <div className="text-center">
-            <h4>Cảm ơn bạn đã gửi thông tin! Vui lòng kiểm tra email của bạn.</h4>
+            <h4>Đang lưu dữ liệu và chuyển đến trang lịch đã đặt...</h4>
           </div>
         )}
       </Container>

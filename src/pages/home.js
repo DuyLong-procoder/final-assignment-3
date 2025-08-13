@@ -101,7 +101,7 @@ function Home() {
             <Button 
               variant="outline-light" 
               size="lg"
-          onClick={() => navigate('/booking')}
+              onClick={() => navigate('/schedule')}
             >
               Xem lịch trình
             </Button>
@@ -138,7 +138,7 @@ function Home() {
                     </ul>
                   </Card.Body>
                   <Card.Footer className="text-center">
-                    <Button variant="danger" onClick={() => navigate('/booking')}>
+                    <Button variant="danger">
                       Đặt ngay
                     </Button>
                   </Card.Footer>
@@ -222,14 +222,14 @@ function Home() {
                 block
                 onClick={() => navigate('/login')}
               >
-                Đặt lịch biểu diễn
+                Đăng nhập để đặt lịch
               </Button>
               <Button 
                 variant="light" 
                 size="lg" 
                 block
                 className="mt-3"
-               onClick={() => navigate('/booking')}
+                onClick={() => navigate('/schedule')}
               >
                 Xem lịch trình biểu diễn
               </Button>

@@ -20,8 +20,8 @@ function Navbar({ user, setUser }) {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        <Link to="/">🏠 Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/">Trang Chủ</Link>
+        <Link to="/about">Về chúng tôi</Link>
         {user && <Link to="/dashboard">Dashboard</Link>}
         {user && <Link to="/profile">Profile</Link>}
       </div>
@@ -41,8 +41,7 @@ function Navbar({ user, setUser }) {
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+
           </>
         )}
       </div>
