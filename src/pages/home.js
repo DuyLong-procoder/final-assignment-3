@@ -213,8 +213,8 @@ function Home() {
         <Container>
           <Row>
             <Col md={6}>
-              <h2>Liên hệ để đặt những gói cao cấp hơn (múa rồng)</h2>
-              <p>Hotline: 0909.123.456</p>
+              <h2>Liên hệ nhận tư vấn về các gói khác với giá cả phải chăng</h2>
+              <p>Hotline: 0905.924.702</p>
               <p>Email: lansurongtrungthu@gmail.com</p>
               <p>Địa chỉ: 123 Đường Lân Sư, Quận Rồng Bay, TP.HCM</p>
             </Col>
@@ -240,6 +240,25 @@ function Home() {
           </Row>
         </Container>
       </section>
+      {/* Member Recruitment Section */}
+<section className="recruitment-section py-5 bg-light">
+  <Container>
+    <h2 className="text-center mb-4">Tuyển Thành Viên Đội Lân</h2>
+    <p className="text-center mb-4">
+      Nếu bạn có niềm đam mê với Lân Sư Rồng, hãy gia nhập đội của chúng tôi để cùng nhau mang lại những màn biểu diễn ấn tượng nhất!
+    </p>
+    <div className="text-center">
+      <Button 
+        variant="danger" 
+        size="lg" 
+        onClick={() => navigate('/register-member')}
+      >
+        Đăng ký ngay
+      </Button>
+    </div>
+  </Container>
+</section>
+
 
       {/* Footer */}
       <footer className="footer bg-dark text-white py-4">

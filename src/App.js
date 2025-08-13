@@ -7,17 +7,16 @@ import Dashboard from './pages/dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import RegisterMember from './pages/RegisterMember'; // <-- import trang RegisterMember
 import BookingPage from './pages/BookingPage';
-import BookingSchedule from './pages/BookingSchedule'; // Import component BookingSchedule
+import BookingSchedule from './pages/BookingSchedule';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-// Route chỉ cho phép user đã đăng nhập
 const ProtectedRoute = ({ user, redirectPath = '/login' }) => {
   return user ? <Outlet /> : <Navigate to={redirectPath} replace />;
 };
 
-// Route chỉ cho phép user chưa đăng nhập
 const GuestRoute = ({ user, redirectPath = '/dashboard' }) => {
   return user ? <Navigate to={redirectPath} replace /> : <Outlet />;
 };
@@ -25,7 +24,6 @@ const GuestRoute = ({ user, redirectPath = '/dashboard' }) => {
 function App() {
   const [user, setUser] = useState(null);
 
-  // Kiểm tra trạng thái đăng nhập từ localStorage
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -37,7 +35,6 @@ function App() {
     }
   }, []);
 
-  // Lưu user vào localStorage khi thay đổi
   useEffect(() => {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
@@ -59,7 +56,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/booking" element={<BookingPage />} />
-          <Route path="/schedule" element={<BookingSchedule />} /> {/* Thêm route mới cho BookingSchedule */}
+          <Route path="/schedule" element={<BookingSchedule />} />
+          <Route path="/register-member" element={<RegisterMember />} /> {/* route mới */}
 
           {/* Protected routes */}
           <Route element={<ProtectedRoute user={user} />}>
@@ -73,7 +71,7 @@ function App() {
             <Route path="/register" element={<Register setUser={setUser} />} />
           </Route>
 
-          {/* Redirect cho route không tồn tại */}
+          {/* Redirect route không tồn tại */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
