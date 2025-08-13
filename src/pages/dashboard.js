@@ -37,6 +37,7 @@ function Dashboard({ user, onLogout }) {
         <h1>Xin chào {user?.username}, vui lòng đợi 1 chút chúng tôi sẽ liên hệ với bạn sớm nhất 👋</h1>
         <button onClick={handleLogout} className="logout-btn">Đăng xuất</button>
         <button onClick={toggleDarkMode} className="darkmode-btn">
+
         </button>
       </div>
 

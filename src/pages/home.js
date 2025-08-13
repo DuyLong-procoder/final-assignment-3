@@ -136,11 +136,15 @@ function Home() {
                       ))}
                     </ul>
                   </Card.Body>
-                  <Card.Footer className="text-center">
-                    <Button variant="danger">
-                      Đặt ngay
-                    </Button>
-                  </Card.Footer>
+                 <Card.Footer className="text-center">
+  <Button 
+    variant="danger"
+    onClick={() => navigate(`/booking?package=${encodeURIComponent(pkg.title)}`)}
+  >
+    Đặt ngay
+  </Button>
+</Card.Footer>
+
                 </Card>
               </Col>
             ))}

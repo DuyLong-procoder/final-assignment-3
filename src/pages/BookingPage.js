@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function BookingPage() {
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Lấy gói từ query string
+  const params = new URLSearchParams(location.search);
+  const selectedPackage = params.get("package");
 
   const eventTypes = [
     { value: 'mua-trung-thu', label: 'Múa Trung Thu' },
@@ -27,7 +32,8 @@ function BookingPage() {
       date: formData.get("date"),
       time: formData.get("time"),
       address: formData.get("address"),
-      notes: formData.get("notes")
+      notes: formData.get("notes"),
+      package: formData.get("package") // Lưu tên gói
     };
 
     // Lưu vào localStorage
@@ -46,7 +52,14 @@ function BookingPage() {
   return (
     <div className="booking-page">
       <Container className="py-5">
-        <h1 className="text-center mb-5">Đặt Lịch Biểu Diễn</h1>
+        <h1 className="text-center mb-4">Đặt Lịch Biểu Diễn</h1>
+
+        {/* Nếu có gói được chọn thì hiển thị thông báo */}
+        {selectedPackage && (
+          <div className="alert alert-info text-center mb-4">
+            Bạn đang đặt: <strong>{selectedPackage}</strong>
+          </div>
+        )}
 
         {!submitted ? (
           <Form
@@ -54,8 +67,11 @@ function BookingPage() {
             method="POST"
             onSubmit={handleSubmit}
           >
-            {/* Tắt captcha và redirect */}
             <input type="hidden" name="_captcha" value="false" />
+            {/* Trường ẩn để lưu thông tin gói */}
+            {selectedPackage && (
+              <input type="hidden" name="package" value={selectedPackage} />
+            )}
 
             <Row>
               <Col md={6}>
