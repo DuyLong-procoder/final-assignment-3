@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Dashboard.css';
 
-function Dashboard({ user, setUser }) {
+function Dashboard({ user, onLogout }) {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [darkMode, setDarkMode] = useState(false);
@@ -14,7 +14,7 @@ function Dashboard({ user, setUser }) {
   }, []);
 
   const handleLogout = () => {
-    setUser(null);
+    onLogout();
     navigate('/login');
   };
 

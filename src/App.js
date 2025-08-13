@@ -7,10 +7,10 @@ import Dashboard from './pages/dashboard';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import BookingPage from './pages/BookingPage'; // Thêm import này
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'; // Thêm file CSS chung nếu cần
+import './App.css';
 
-// Component bảo vệ route cho trang yêu cầu đăng nhập
 const ProtectedRoute = ({ user, redirectPath = '/login' }) => {
   if (!user) {
     return <Navigate to={redirectPath} replace />;
@@ -18,7 +18,6 @@ const ProtectedRoute = ({ user, redirectPath = '/login' }) => {
   return <Outlet />;
 };
 
-// Component cho trang chỉ dành cho khách (khi chưa đăng nhập)
 const GuestRoute = ({ user, redirectPath = '/dashboard' }) => {
   if (user) {
     return <Navigate to={redirectPath} replace />;
@@ -33,7 +32,6 @@ function App() {
   });
 
   useEffect(() => {
-    // Lưu user vào localStorage khi có thay đổi
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
     } else {
@@ -53,10 +51,11 @@ function App() {
           {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/booking" element={<BookingPage />} /> {/* Thêm route mới */}
 
           {/* Protected routes - chỉ truy cập khi đã đăng nhập */}
           <Route element={<ProtectedRoute user={user} />}>
-            <Route path="/dashboard" element={<Dashboard user={user} />} />
+            <Route path="/dashboard" element={<Dashboard user={user} onLogout={handleLogout} />} />
             <Route path="/profile" element={<Profile user={user} />} />
           </Route>
 
