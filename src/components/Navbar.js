@@ -22,8 +22,8 @@ function Navbar({ user, setUser }) {
       <div className="nav-left">
         <Link to="/">Trang Chủ</Link>
         <Link to="/about">Về chúng tôi</Link>
-        {user && <Link to="/dashboard">Dashboard</Link>}
-        {user && <Link to="/profile">Profile</Link>}
+        {user && <Link to="/dashboard">Danh sách chờ</Link>}
+        {user && <Link to="/profile">Thông tin cá nhân</Link>}
       </div>
 
       <div className="nav-right">
