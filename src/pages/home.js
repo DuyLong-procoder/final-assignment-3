@@ -12,7 +12,7 @@ function Home() {
   const performancePackages = [
     {
       title: "Gói Cơ Bản",
-      price: "3.000.000 VND",
+      price: "2.000.000 VND",
       features: [
         "1 đội Lân (5 người)",
         "Biểu diễn 30 phút",
@@ -22,7 +22,7 @@ function Home() {
     },
     {
       title: "Gói Tiêu Chuẩn",
-      price: "5.000.000 VND",
+      price: "4.000.000 VND",
       features: [
         "1 đội Lân Sư Rồng (8 người)",
         "Biểu diễn 45 phút",
@@ -33,12 +33,11 @@ function Home() {
     },
     {
       title: "Gói Cao Cấp",
-      price: "8.000.000 VND",
+      price: "6.000.000 VND",
       features: [
         "2 đội Lân Sư Rồng (12 người)",
         "Biểu diễn 60 phút",
         "Múa lân chuyên nghiệp",
-        "Múa rồng dài 15m",
         "Trống hội + nhạc lễ",
         "Phát lộc + quà cao cấp",
         "Chụp ảnh cùng đội lân"
@@ -210,7 +209,7 @@ function Home() {
         <Container>
           <Row>
             <Col md={6}>
-              <h2>Liên Hệ Đặt Lịch</h2>
+              <h2>Liên hệ để đặt những gói cao cấp hơn (múa rồng)</h2>
               <p>Hotline: 0909.123.456</p>
               <p>Email: lansurongtrungthu@gmail.com</p>
               <p>Địa chỉ: 123 Đường Lân Sư, Quận Rồng Bay, TP.HCM</p>
